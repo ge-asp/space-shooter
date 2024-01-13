@@ -9,8 +9,9 @@ public class ShipController : MonoBehaviour
     [SerializeField] [Range(1000f, 10000f)]
     float _thrustForce = 7500f, _pitchForce = 2000f, _yawForce = 2000f, _rollForce = 2000f;
 
+    [SerializeField] List<ShipEngine> _engines;
+
     Rigidbody _rigidbody;
-    [SerializeField] [Range(-1f, 1f)]
     float _thrustAmount, _pitchAmount, _yawAmount, _rollAmount = 0f;
 
     IMovementControls ControlInput => _movementInput.MovementControls;
@@ -18,6 +19,14 @@ public class ShipController : MonoBehaviour
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    void Start()
+    {
+        foreach (ShipEngine engine in _engines)
+        {
+            engine.Init(ControlInput);
+        }
     }
 
     void Update()
