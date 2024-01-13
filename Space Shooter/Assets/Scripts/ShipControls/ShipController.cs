@@ -6,8 +6,8 @@ public class ShipController : MonoBehaviour
 {
     [SerializeField] ShipMovementInput _movementInput;
 
-    [SerializeField] [Range(10f, 10000f)]
-    float _thrustForce = 7500f, _pitchForce = 50f, _yawForce = 50f, _rollForce = 50f;
+    [SerializeField] [Range(1000f, 10000f)]
+    float _thrustForce = 7500f, _pitchForce = 2000f, _yawForce = 2000f, _rollForce = 2000f;
 
     Rigidbody _rigidbody;
     [SerializeField] [Range(-1f, 1f)]
